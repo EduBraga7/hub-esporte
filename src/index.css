@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Cores vibrantes - esporte/energia */
+  --accent-rgb: 255 107 53; /* Laranja energético */
+  --accent-secondary: 46 196 182; /* Verde água */
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #0F1419;
+  color: #F0F4F8;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .container-app {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-bg hover:brightness-110 active:brightness-95;
+  }
+  .btn-secondary {
+    @apply btn bg-surface2 text-text hover:bg-line border border-line;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-text hover:bg-surface2;
+  }
+  .btn-outline {
+    @apply btn bg-transparent text-text border border-line hover:border-accent hover:text-accent;
+  }
+
+  .card {
+    @apply rounded-2xl bg-surface border border-line p-5;
+  }
+  .card-hover {
+    @apply card transition hover:border-accent/60 hover:shadow-glow;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-surface2 border border-line px-2.5 py-1 text-xs text-text-muted;
+  }
+  .chip-accent {
+    @apply chip text-accent border-accent/40 bg-accent/10;
+  }
+
+  .section {
+    @apply py-14 sm:py-20;
+  }
+
+  .h-display {
+    font-family: 'Bebas Neue', 'Inter', sans-serif;
+    letter-spacing: 0.02em;
+  }
+}
+
+/* Inputs base */
+input[type='number'],
+input[type='text'],
+select {
+  @apply w-full rounded-xl bg-surface2 border border-line px-3 py-2 text-text placeholder:text-text-muted focus:outline-none focus:border-accent;
+}
+
+label {
+  @apply block text-sm font-medium text-text-muted mb-1.5;
+}
+
+::selection {
+  background: rgb(var(--accent-rgb) / 0.4);
+  color: #fff;
+}
